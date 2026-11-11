@@ -1,0 +1,14 @@
+[toolchain]
+anchor_version = "1.2.0"
+solana_version = "4.1.2"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+rightup_iro_v2 = "26tAP5skAJsT49DM4FVC4ivmWy9oFiRRvuBd559UNg7W"
+
+[provider]
+cluster = "Localnet"
+wallet = "./.local/developer-keypair.json"

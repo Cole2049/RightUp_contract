@@ -1,0 +1,33 @@
+[package]
+name = "rightup-iro-v2"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "rightup_iro_v2"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "=1.2.0", features = ["init-if-needed", "event-cpi"] }
+anchor-spl = { version = "=1.2.0", default-features = false, features = ["associated_token", "token", "token_2022"] }
+mpl-core = "=0.12.1"
+solana-sha256-hasher = "=3.1.0"
+solana-instructions-sysvar = "=3.0.0"
+solana-sdk-ids = "=3.1.0"
+uint = { version = "=0.10.0", default-features = false }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
